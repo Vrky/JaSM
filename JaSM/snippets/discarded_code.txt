@@ -1,0 +1,37 @@
+﻿            
+            // ###################################################################################
+            // DISCARDED PAGE CONTROLER
+            
+            // page controller function that makes a specified page visible and others invisible...
+            if (pageName != null && buttonName != null && imageName != null)
+            {
+                // hide all grids...
+                system_PG_GD.Visibility = Visibility.Hidden;
+                cpu_PG_GD.Visibility = Visibility.Hidden;
+                gpu_PG_GD.Visibility = Visibility.Hidden;
+                storage_PG_GD.Visibility = Visibility.Hidden;
+                info_PG_GD.Visibility = Visibility.Hidden;
+
+                // show target grid...
+                pageName.Visibility = Visibility.Visible;
+
+                // set all images to unfocused image...
+                // sorry for seeing this but I wanted to have this in C# and the function isn't that shit compared to XAML image-focused storyboards...
+                system_BT_GD.Background = new ImageBrush(BitmapFrame.Create(Application.GetResourceStream(new Uri("resources/system_unfocus.png", UriKind.Relative)).Stream));
+                cpu_BT_GD.Background = new ImageBrush(BitmapFrame.Create(Application.GetResourceStream(new Uri("resources/cpu_unfocus.png", UriKind.Relative)).Stream));
+                gpu_BT_GD.Background = new ImageBrush(BitmapFrame.Create(Application.GetResourceStream(new Uri("resources/gpu_unfocus.png", UriKind.Relative)).Stream));
+                storage_BT_GD.Background = new ImageBrush(BitmapFrame.Create(Application.GetResourceStream(new Uri("resources/storage_unfocus.png", UriKind.Relative)).Stream));
+                info_BT_GD.Background = new ImageBrush(BitmapFrame.Create(Application.GetResourceStream(new Uri("resources/info_unfocus.png", UriKind.Relative)).Stream));
+
+                // get and set focus image...
+                buttonName.Background = new ImageBrush(BitmapFrame.Create(Application.GetResourceStream(new Uri("resources/" + imageName + ".png", UriKind.Relative)).Stream));
+
+
+
+                List<Grid> menuGrids = new List<Grid>();
+            }
+            else
+            {
+                // warn user of malfunctioning behavior of the application...
+                //throw new NotImplementedException();
+            }

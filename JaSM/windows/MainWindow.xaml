@@ -1,0 +1,565 @@
+﻿<Window
+    x:Class="JaSM.windows.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:JaSM.windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="main_WD"
+    MouseDown="main_WD_MouseDown"
+    RenderOptions.BitmapScalingMode="HighQuality"
+    Style="{StaticResource main_WS}"
+    mc:Ignorable="d">
+    <Grid
+        x:Name="main_GD"
+        Width="1000"
+        Height="500"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <Grid
+            x:Name="title_GD"
+            Width="1000"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+            </Grid.Background>
+            <Grid
+                x:Name="logo_GD"
+                Width="25"
+                Height="25"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/logo.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.7" ScaleY="0.7" />
+                                <SkewTransform CenterX="0.5" CenterY="0.5" />
+                                <RotateTransform CenterX="0.5" CenterY="0.5" />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Grid.Background>
+            </Grid>
+            <TextBox
+                x:Name="title_TB"
+                Width="150"
+                Margin="40,0,0,0"
+                Style="{StaticResource title_TS}"
+                Text="Just a System Monitor" />
+            <Grid
+                x:Name="minimize_GD"
+                Width="20"
+                Height="20"
+                Margin="945,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                MouseDown="minimize_GD_MouseDown"
+                ToolTip="Minimize the application.">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/minimize.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.9" ScaleY="0.9" />
+                                <SkewTransform CenterX="0.5" CenterY="0.5" />
+                                <RotateTransform CenterX="0.5" CenterY="0.5" />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Grid.Background>
+            </Grid>
+            <Grid
+                x:Name="exit_GD"
+                Width="20"
+                Height="20"
+                Margin="970,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                MouseDown="exit_GD_MouseDown"
+                ToolTip="Close the application.">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/exit.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.9" ScaleY="0.9" />
+                                <SkewTransform CenterX="0.5" CenterY="0.5" />
+                                <RotateTransform CenterX="0.5" CenterY="0.5" />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Grid.Background>
+            </Grid>
+        </Grid>
+        <Grid
+            x:Name="menu_GD"
+            Width="1000"
+            Height="50"
+            Margin="0,25,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource menu_BG_CR}" />
+            </Grid.Background>
+            <Grid
+                x:Name="system_BT_GD"
+                Width="40"
+                Margin="15,5,0,5"
+                HorizontalAlignment="Left"
+                Cursor="Hand"
+                MouseDown="system_BT_GD_MouseDown"
+                ToolTip="Open the page with data for monitoring the basic SYSTEM data.">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/system_unfocus.png" />
+                </Grid.Background>
+            </Grid>
+            <Grid
+                x:Name="cpu_BT_GD"
+                Width="40"
+                Height="40"
+                Margin="70,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                MouseDown="cpu_BT_GD_MouseDown"
+                ToolTip="Open the page with data for monitoring the basic CPU data.">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/cpu_unfocus.png" />
+                </Grid.Background>
+            </Grid>
+            <Grid
+                x:Name="gpu_BT_GD"
+                Width="40"
+                Height="40"
+                Margin="125,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                MouseDown="gpu_BT_GD_MouseDown"
+                ToolTip="Open the page with data for monitoring the basic GPU data.">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/gpu_unfocus.png" />
+                </Grid.Background>
+            </Grid>
+            <Grid
+                x:Name="storage_BT_GD"
+                Width="40"
+                Height="40"
+                Margin="180,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                MouseDown="storage_BT_GD_MouseDown"
+                ToolTip="Open the page with data for monitoring the basic STORAGE data.">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/storage_unfocus.png" />
+                </Grid.Background>
+            </Grid>
+            <Grid
+                x:Name="divider_GD"
+                Width="2"
+                Height="30"
+                Margin="230,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center">
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                </Grid.Background>
+            </Grid>
+            <Grid
+                x:Name="info_BT_GD"
+                Width="40"
+                Height="40"
+                Margin="242,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                MouseDown="info_BT_GD_MouseDown"
+                ToolTip="Open the page with basic application data.">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/info_unfocus.png" />
+                </Grid.Background>
+            </Grid>
+            <Grid
+                x:Name="repo_BT_GD"
+                Width="40"
+                Height="40"
+                Margin="297,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Cursor="Hand"
+                ToolTip="Open the application GitHub repository." PreviewMouseDown="repo_BT_GD_PreviewMouseDown">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/resources/repo.png" />
+                </Grid.Background>
+            </Grid>
+        </Grid>
+        <Grid
+            x:Name="page_GD"
+            Width="1000"
+            Height="425"
+            Margin="0,75,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+            <Grid
+                x:Name="system_PG_GD"
+                Width="980"
+                Height="415"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Visibility="Hidden">
+                <Grid
+                    x:Name="system_PG_decorator_GD_1"
+                    Width="2"
+                    Height="18"
+                    Margin="24,-8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="system_PG_decorator_GD_2"
+                    Width="26"
+                    Height="2"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="system_PG_decorator_GD_3"
+                    Width="2"
+                    Height="405"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+            </Grid>
+            <Grid
+                x:Name="cpu_PG_GD"
+                Width="980"
+                Height="415"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Visibility="Hidden">
+                <Grid
+                    x:Name="cpu_PG_decorator_GD_1"
+                    Width="2"
+                    Height="18"
+                    Margin="79,-8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="cpu_PG_decorator_GD_2"
+                    Width="79"
+                    Height="2"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="cpu_PG_decorator_GD_3"
+                    Width="2"
+                    Height="405"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+            </Grid>
+            <Grid
+                x:Name="gpu_PG_GD"
+                Width="980"
+                Height="415"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Visibility="Hidden">
+                <Grid
+                    x:Name="gpu_PG_decorator_GD_1"
+                    Width="2"
+                    Height="18"
+                    Margin="134,-8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="gpu_PG_decorator_GD_2"
+                    Width="134"
+                    Height="2"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="gpu_PG_decorator_GD_3"
+                    Width="2"
+                    Height="405"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+            </Grid>
+            <Grid
+                x:Name="storage_PG_GD"
+                Width="980"
+                Height="415"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Visibility="Hidden">
+                <Grid
+                    x:Name="storage_PG_decorator_GD_1"
+                    Width="2"
+                    Height="18"
+                    Margin="189,-8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="storage_PG_decorator_GD_2"
+                    Width="189"
+                    Height="2"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="storage_PG_decorator_GD_3"
+                    Width="2"
+                    Height="405"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+            </Grid>
+            <Grid
+                x:Name="info_PG_GD"
+                Width="980"
+                Height="415"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top">
+                <Grid
+                    x:Name="info_PG_decorator_GD_1"
+                    Width="2"
+                    Height="23"
+                    Margin="251,-13,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="info_PG_decorator_GD_2"
+                    Width="251"
+                    Height="2"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    x:Name="info_PG_decorator_GD_3"
+                    Width="2"
+                    Height="405"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource main_TH_CR}" />
+                    </Grid.Background>
+                </Grid>
+                <TextBox
+                    x:Name="info_title_TB"
+                    Width="243"
+                    Height="25"
+                    Margin="10,15,0,0"
+                    VerticalAlignment="Top"
+                    FontSize="20"
+                    Style="{StaticResource main_TS}"
+                    Text="About JaSM" />
+                <TextBox
+                    x:Name="info_text_TB"
+                    Width="935"
+                    Height="80"
+                    Margin="20,45,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="JaSM or Just a System Monitor was born from my frustrations with other system monitors that either featured too little or too much information.&#xA;&#xA;I obsess over my computers thermal performance to an unhealthy degree, &#xA;which requires me to have some kind of an easy to use tool that I can get into fast and easy and not be bogged down with Login screens, trash information and bad UI design.&#xA;So I decided to make my own tool that would suit me the best and maybe even someone else." />
+                <TextBox
+                    x:Name="info_language_TB"
+                    Margin="10,130,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="Language" />
+                <TextBox
+                    x:Name="info_language_BT_TB"
+                    Width="NaN"
+                    Margin="115,130,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+
+                    Style="{StaticResource link_TS}"
+                    Text="C# " PreviewMouseDown="info_language_BT_TB_PreviewMouseDown" />
+                <TextBox
+                    x:Name="info_frame_TB"
+                    Margin="10,150,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="FrameWork" />
+                <TextBox
+                    x:Name="info_frame_BT_TB"
+                    Width="NaN"
+                    Margin="115,150,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+
+                    Style="{StaticResource link_TS}"
+                    Text="Windows Presentation Foundation" PreviewMouseDown="info_frame_BT_TB_PreviewMouseDown" />
+                <TextBox
+                    x:Name="info_built_TB"
+                    Margin="10,170,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="Built with" />
+                <TextBox
+                    x:Name="info_built_BT_TB"
+                    Width="NaN"
+                    Margin="115,170,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+
+                    Style="{StaticResource link_TS}"
+                    Text="Visual Studio 2022 Community" PreviewMouseDown="info_built_BT_TB_PreviewMouseDown" />
+                <TextBox
+                    x:Name="info_repo_TB"
+                    Margin="10,190,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="Repo" />
+                <TextBox
+                    x:Name="info_repo_BT_TB"
+                    Width="NaN"
+                    Margin="115,190,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+
+                    Style="{StaticResource link_TS}"
+                    Text="GitHub" PreviewMouseDown="info_repo_BT_TB_PreviewMouseDown" />
+                <TextBox
+                    x:Name="info_visual_TB"
+                    Margin="10,210,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="Data Visualization" />
+                <TextBox
+                    x:Name="info_visual_BT_TB"
+                    Width="NaN"
+                    Margin="115,210,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+
+                    Style="{StaticResource link_TS}"
+                    Text="LiveCharts 2" PreviewMouseDown="info_visual_BT_TB_PreviewMouseDown" />
+                <TextBox
+                    x:Name="info_reading_TB"
+                    Margin="10,230,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="Data Reading" />
+                <TextBox
+                    x:Name="info_reading_BT_TB"
+                    Width="NaN"
+                    Margin="115,230,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+
+                    Style="{StaticResource link_TS}"
+                    Text="Open Hardware Monitor " PreviewMouseDown="info_reading_BT_TB_PreviewMouseDown" />
+                <TextBox
+                    x:Name="info_menuIcons_TB"
+                    Margin="10,250,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="Menu Icons" />
+                <TextBox
+                    x:Name="info_menuIcons_BT_TB"
+                    Width="NaN"
+                    Margin="115,250,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+
+                    Style="{StaticResource link_TS}"
+                    Text="rukanicon" PreviewMouseDown="info_menuIcons_BT_TB_PreviewMouseDown" />
+                <TextBox
+                    x:Name="info_toolbarIcons_TB"
+                    Margin="10,270,0,0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource main_TS}"
+                    Text="Toolbar Icons" />
+                <TextBox
+                    x:Name="info_toolbarIcons_BT_TB"
+                    Width="NaN"
+                    Margin="115,270,0,0"
+                    Padding="2,-1.5,0,0"
+                    VerticalAlignment="Top"
+                  
+                    Style="{StaticResource link_TS}"
+                    Text="Moqaccino Resources" PreviewMouseDown="info_toolbarIcons_BT_TB_PreviewMouseDown" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

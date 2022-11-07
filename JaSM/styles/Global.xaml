@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Global Color Resources  -->
+
+    <!--  Theme  -->
+    <Color x:Key="main_TH_CR">#FF2A5B88</Color>
+    <Color x:Key="unfocused_TH_CR">#FF949494</Color>
+    <!--  Background  -->
+    <Color x:Key="main_BG_CR">#FFF1F1F1</Color>
+    <Color x:Key="menu_BG_CR">#192A5B88</Color>
+    <Color x:Key="write_BG_CR">#FFFFFFFF</Color>
+    <!--  Text  -->
+    <Color x:Key="main_TX_CR">#FF242424</Color>
+    <Color x:Key="title_TX_CR">#FFFFFFFF</Color>
+    <!--    -->
+    <!--    -->
+    <!--    -->
+    <!--    -->
+
+    <!--  What is next is a sort of a hack to get colors into dictionaries because I don't know any better and fuck you WPF  -->
+
+    <!--  Theme  -->
+    <SolidColorBrush x:Key="main_TH" Color="{StaticResource main_TH_CR}"/>
+    <SolidColorBrush x:Key="unfocused_TH" Color="{StaticResource unfocused_TH_CR}"/>
+    <!--  Background  -->
+    <SolidColorBrush x:Key="main_BG" Color="{StaticResource main_BG_CR}"/>
+    <SolidColorBrush x:Key="menu_BG" Color="{StaticResource menu_BG_CR}"/>
+    <SolidColorBrush x:Key="write_BG" Color="{StaticResource write_BG_CR}"/>
+    <!--  Text  -->
+    <SolidColorBrush x:Key="main_TX" Color="{StaticResource main_TX_CR}"/>
+    <SolidColorBrush x:Key="title_TX" Color="{StaticResource title_TX_CR}"/>
+    <!--    -->
+    <!--    -->
+    <!--    -->
+    <!--    -->
+</ResourceDictionary>

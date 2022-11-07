@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>resources\logo.ico</ApplicationIcon>
+    <Title>Just a System Manager</Title>
+    <Authors>Vrky</Authors>
+    <Company>Vrky</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\cpu.png" />
+    <None Remove="resources\cpu_focus.png" />
+    <None Remove="resources\cpu_unfocus.png" />
+    <None Remove="resources\exit.png" />
+    <None Remove="resources\gpu.png" />
+    <None Remove="resources\gpu_focus.png" />
+    <None Remove="resources\gpu_unfocus.png" />
+    <None Remove="resources\info.png" />
+    <None Remove="resources\info_focus.png" />
+    <None Remove="resources\info_unfocus.png" />
+    <None Remove="resources\logo.ico" />
+    <None Remove="resources\logo.png" />
+    <None Remove="resources\minimize.png" />
+    <None Remove="resources\repo.png" />
+    <None Remove="resources\storage.png" />
+    <None Remove="resources\storage_focus.png" />
+    <None Remove="resources\storage_unfocus.png" />
+    <None Remove="resources\sys.png" />
+    <None Remove="resources\system.png" />
+    <None Remove="resources\system_focus.png" />
+    <None Remove="resources\system_unfocus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\cpu_focus.png" />
+    <Resource Include="resources\cpu_unfocus.png" />
+    <Resource Include="resources\gpu_focus.png" />
+    <Resource Include="resources\gpu_unfocus.png" />
+    <Resource Include="resources\info_focus.png" />
+    <Resource Include="resources\info_unfocus.png" />
+    <Content Include="resources\logo.ico" />
+    <Resource Include="resources\repo.png" />
+    <Resource Include="resources\storage_focus.png" />
+    <Resource Include="resources\storage_unfocus.png" />
+    <Resource Include="resources\system_focus.png" />
+    <Resource Include="resources\system_unfocus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\exit.png" />
+    <Resource Include="resources\logo.ico" />
+    <Resource Include="resources\logo.png" />
+    <Resource Include="resources\minimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="docs\reminders.txt">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="charts\" />
+    <Folder Include="scripts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+</Project>
